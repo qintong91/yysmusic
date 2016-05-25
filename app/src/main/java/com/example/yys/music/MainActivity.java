@@ -5,13 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,20 +18,14 @@ import android.widget.Toast;
 
 import com.example.yys.music.bean.Post;
 import com.example.yys.music.core.Api;
-import com.example.yys.music.core.SimpleCallback;
 import com.example.yys.music.core.ZhuanLanApi;
-import com.example.yys.music.net.MyTask;
 import com.facebook.drawee.view.SimpleDraweeView;
 
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-import butterknife.ButterKnife;
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -118,6 +109,9 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, StoryActivity.class);
+                i.putExtra(StoryActivity.KEY_POST, mList.get(getAdapterPosition()));
+                startActivity(i);
 
             }
         }
